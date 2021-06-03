@@ -15,16 +15,17 @@
           <Sorting></Sorting>
           <SwitchView></SwitchView>
         </div>
-        <List :class="{ invisibleList: isInvisibleList }"></List>
-        <div class="card-wraper" :class="{ invisibleCard: isInvisibleCard }">
-          <Card></Card>
-          <Card></Card>
-          <Card></Card>
-          <Card></Card>
-          <Card></Card>
+        <div  class="card-wraper" :class="{ invisibleCard: isInvisibleCard }">
+          <Card v-bind:users="users" :isInvisibleCard="isInvisibleCard"></Card>
+        </div>
+        <div :isInvisibleList="isInvisibleList" class="list-wraper" :class="{ invisibleList: isInvisibleList }">
+          <List v-bind:users="users" :isInvisibleList="isInvisibleList"></List>
         </div>
       </div>
     </div>
+    <pre>
+      {{$data}}
+    </pre>
   </div>
 </template>
 
@@ -48,9 +49,20 @@ export default {
   },
   data() {
     return {
-      isInvisibleList: true,
-      isInvisibleCard: true
+      isInvisibleList: false,
+      isInvisibleCard: false,
+      users: [
+        {id:0, name: 'Аня', waybill: '5846', typeOrder:'доставка оптом', createDate: '02.06.2021', isInvisible: true,},
+        {id:1, name: 'Борис', waybill: '3980', typeOrder:'покупка в розницу', createDate: '02.06.2021', isInvisible: true,},
+        {id:2, name: 'Клара', waybill: '7690', typeOrder:'доставка оптом', createDate: '02.06.2021', isInvisible: true,},
+        {id:3, name: 'Дональд', waybill: '3764', typeOrder:'покупка в розницу', createDate: '02.06.2021', isInvisible: true,},
+        {id:4, name: 'Эдвард', waybill: '2754', typeOrder:'доставка оптом', createDate: '02.06.2021', isInvisible: true,},
+
+      ],
     }
+  },
+  methods: {
+
   }
 }
 </script>
@@ -89,12 +101,6 @@ export default {
 .right-head {
   display: flex;
   flex-direction: row;
-}
-
-.card-wraper {
-  display: grid;
-  grid-template-areas:    "item item item"
-                          "item item item"
 }
 
 .invisibleList,

@@ -25,9 +25,10 @@
 <script>
 export default {
   name: "Switch-view",
-  data() {
-
-  }
+  props: {
+    isInvisibleCard: Boolean,
+    isInvisibleList: Boolean,
+  },
 }
 </script>
 

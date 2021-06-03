@@ -33,7 +33,7 @@
               <path d="M15.6433 6.58036H13.6897V6.43945C13.6897 6.19713 13.4527 6 13.1614 6H10.8387C10.5474 6 10.3103 6.19713 10.3103 6.43945V6.58036H8.35671C7.60864 6.58036 7 7.08655 7 7.70875V8.43233C7 8.56173 7.12613 8.66667 7.28178 8.66667H16.7183C16.8739 8.66667 17 8.56173 17 8.43233V7.70875C17 7.08656 16.3914 6.58036 15.6433 6.58036Z" fill="#647A8C"/>
             </svg>
           </button>
-          <button class="edit-delete-settings" v-on:click="user.isInvisible=!user.isInvisible">
+          <button class="edit-delete-settings" v-on:mouseover="user.isInvisible=!user.isInvisible">
             <svg width="4" height="14" viewBox="0 0 4 14" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M4 1.75C4 0.7875 3.1 0 2 0C0.9 0 0 0.7875 0 1.75C0 2.7125 0.9 3.5 2 3.5C3.1 3.5 4 2.7125 4 1.75ZM4 12.25C4 11.2875 3.1 10.5 2 10.5C0.9 10.5 0 11.2875 0 12.25C0 13.2125 0.9 14 2 14C3.1 14 4 13.2125 4 12.25ZM4 7C4 6.0375 3.1 5.25 2 5.25C0.9 5.25 0 6.0375 0 7C0 7.9625 0.9 8.75 2 8.75C3.1 8.75 4 7.9625 4 7Z" fill="#647A8C"/>
             </svg>
@@ -41,9 +41,6 @@
         </div>
       </div>
     </div>
-    <pre>
-      {{$data}}
-    </pre>
   </div>
 </template>
 
@@ -52,18 +49,12 @@ export default {
   name: "List",
   data() {
     return {
-      isInvisibleList: Boolean,
-      users: [
-        {id:0, name: 'Аня', waybill: '5846', typeOrder:'доставка оптом', createDate: '02.06.2021', isInvisible: true,},
-        {id:1, name: 'Борис', waybill: '3980', typeOrder:'покупка в розницу', createDate: '02.06.2021', isInvisible: true,},
-        {id:2, name: 'Клара', waybill: '7690', typeOrder:'доставка оптом', createDate: '02.06.2021', isInvisible: true,},
-        {id:3, name: 'Дональд', waybill: '3764', typeOrder:'покупка в розницу', createDate: '02.06.2021', isInvisible: true,},
-        {id:4, name: 'Эдвард', waybill: '2754', typeOrder:'доставка оптом', createDate: '02.06.2021', isInvisible: true,},
-      ],
     }
   },
+  props: {
+    users: Array
+  },
   methods: {
-
   }
 }
 </script>

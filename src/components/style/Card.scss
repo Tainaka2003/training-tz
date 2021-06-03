@@ -1,9 +1,7 @@
-.right-main_card {
-  width: 290px;
-  height: 210px;
-  box-shadow: 0 4px 12px #E7E7E7;
-  margin-bottom: 20px;
-  margin-right: 20px;
+.right-main_card-wrap {
+  display: grid;
+  grid-template-areas:    "item item item"
+                          "item item item"
 }
 
 .right-main_card-head {
@@ -12,6 +10,14 @@
   justify-content: space-between;
   background: rgba(237, 232, 245, 0.5);
   height: 40px;
+}
+
+.main_card {
+  width: 290px;
+  height: 210px;
+  box-shadow: 0 4px 12px #E7E7E7;
+  margin-bottom: 20px;
+  margin-right: 20px;
 }
 
 .card-title {
