@@ -1,0 +1,26 @@
+.add {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #4943CD;
+  box-shadow: 0px 4px 4px #EBEBEB;
+  border-radius: 2px;
+  border: 0;
+  outline: 0;
+  width: 280px;
+  height: 70px;
+  margin-right: 30px;
+  margin-bottom: 20px;
+}
+
+.add-text {
+  text-transform: uppercase;
+  margin-left: 16px;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 16px;
+
+  color: #FFFFFF;
+}
