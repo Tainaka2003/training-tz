@@ -5,11 +5,12 @@
         Тестовое задание
       </div>
     </div>
-    <router-view v-bind:users="users"/>
+    <router-view v-bind:users="users" @addRecord="addRecord"/>
     <pre>
       {{$data}}
     </pre>
   </div>
+
 </template>
 
 <script>
@@ -22,16 +23,18 @@ export default {
   data() {
     return {
       users: [
-        {id:0, name: 'Аня', waybill: '5846', typeOrder:'доставка оптом', createDate: '02.06.2021', isInvisible: true,},
-        {id:1, name: 'Борис', waybill: '3980', typeOrder:'покупка в розницу', createDate: '02.06.2021', isInvisible: true,},
-        {id:2, name: 'Клара', waybill: '7690', typeOrder:'доставка оптом', createDate: '02.06.2021', isInvisible: true,},
-        {id:3, name: 'Дональд', waybill: '3764', typeOrder:'покупка в розницу', createDate: '02.06.2021', isInvisible: true,},
-        {id:4, name: 'Эдвард', waybill: '2754', typeOrder:'доставка оптом', createDate: '02.06.2021', isInvisible: true,},
+        {id:Date.now()-2**10, name: 'Аня', waybill: '5846', typeorder:'доставка оптом', createdate: '02.06.2021', isInvisible: true,},
+        {id:Date.now()-2**11, name: 'Борис', waybill: '3980', typeorder:'покупка в розницу', createdate: '02.06.2021', isInvisible: true,},
+        {id:Date.now()-2**12, name: 'Клара', waybill: '7690', typeorder:'доставка оптом', createdate: '02.06.2021', isInvisible: true,},
+        {id:Date.now()-2**13, name: 'Дональд', waybill: '3764', typeorder:'покупка в розницу', createdate: '02.06.2021', isInvisible: true,},
+        {id:Date.now()-2**14, name: 'Эдвард', waybill: '2754', typeorder:'доставка оптом', createdate: '02.06.2021', isInvisible: true,},
       ],
     }
   },
   methods: {
-
+    addRecord(record) {
+      this.users.push(record);
+    }
   }
 }
 </script>
@@ -47,16 +50,9 @@ export default {
   height: 100px;
 }
 
-.main {
-  display: flex;
-  flex-direction: row;
-  margin: 30px 110px 0 110px;
-}
-
 .head-title {
   padding: 25px 0 0 30px;
   text-align: left;
-
   font-style: normal;
   font-weight: bold;
   font-size: 36px;
@@ -67,14 +63,13 @@ export default {
   text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.right-head {
-  display: flex;
-  flex-direction: row;
-}
-
-.invisibleList,
-.invisibleCard {
-  display: none;
+.modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
 }
 
 </style>

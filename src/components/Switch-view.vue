@@ -14,7 +14,7 @@
         </svg>
       </button>
     </router-link>
-    <router-link to="/list">
+    <router-link to="/">
       <button class="switch_view-button">
         <svg width="16" height="10" viewBox="0 0 16 10" fill="none" xmlns="http://www.w3.org/2000/svg">
           <line y1="1" x2="16" y2="1" stroke="#045DA7" stroke-width="2"/>

@@ -8,10 +8,10 @@
       <div class="head-caption"></div>
     </div>
     <div class="right-main_list-text" v-for="(user, index) in users" v-bind:key="user.id">
-      <div class="text-caption">{{user.name}}</div>
+      <div class="text-caption">{{user.id}}</div>
       <div class="text-caption">{{user.waybill}}</div>
-      <div class="text-caption">{{user.typeOrder}}</div>
-      <div class="text-caption">{{user.createDate}}</div>
+      <div class="text-caption">{{user.typeorder}}</div>
+      <div class="text-caption">{{user.createdate}}</div>
       <div class="text-caption">
         <div class="btn-wrap">
           <button class="edit-delete-settings" v-bind:class="{ invisible: user.isInvisible }">

@@ -31,16 +31,19 @@
       </div>
     </div>
     <p class="right-main_card-text">
-      ID: {{user.name}}
+      ID: {{user.id}}
     </p>
+      <p class="right-main_card-text">
+        Имя клиента: {{user.name}}
+      </p>
     <p class="right-main_card-text">
       Номер накладной: {{user.waybill}}
     </p>
     <p class="right-main_card-text">
-      Тип заказа: {{user.typeOrder}}
+      Тип заказа: {{user.typeorder}}
     </p>
     <p class="right-main_card-text">
-      Дата создания: {{user.createDate}}
+      Дата создания: {{user.createdate}}
     </p>
     </div>
   </div>
