@@ -10,7 +10,9 @@
 
 <script>
 export default {
-  name: "Sorting"
+  name: "Sorting",
+  methods: {
+  }
 }
 </script>
 

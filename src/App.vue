@@ -7,10 +7,9 @@
     </div>
     <router-view v-bind:users="users" @addRecord="addRecord"/>
     <pre>
-      {{$data}}
-    </pre>
+    {{$data}}
+  </pre>
   </div>
-
 </template>
 
 <script>
@@ -25,17 +24,21 @@ export default {
       users: [
         {id:Date.now()-2**10, name: 'Аня', waybill: '5846', typeorder:'доставка оптом', createdate: '02.06.2021', isInvisible: true,},
         {id:Date.now()-2**11, name: 'Борис', waybill: '3980', typeorder:'покупка в розницу', createdate: '02.06.2021', isInvisible: true,},
-        {id:Date.now()-2**12, name: 'Клара', waybill: '7690', typeorder:'доставка оптом', createdate: '02.06.2021', isInvisible: true,},
-        {id:Date.now()-2**13, name: 'Дональд', waybill: '3764', typeorder:'покупка в розницу', createdate: '02.06.2021', isInvisible: true,},
-        {id:Date.now()-2**14, name: 'Эдвард', waybill: '2754', typeorder:'доставка оптом', createdate: '02.06.2021', isInvisible: true,},
+        {id:Date.now()-2**12, name: 'Клара', waybill: '7690', typeorder:'доставка оптом', createdate: '03.06.2021', isInvisible: true,},
+        {id:Date.now()-2**13, name: 'Дональд', waybill: '3764', typeorder:'покупка в розницу', createdate: '03.06.2021', isInvisible: true,},
+        {id:Date.now()-2**14, name: 'Эдвард', waybill: '2754', typeorder:'доставка оптом', createdate: '04.06.2021', isInvisible: true,},
+        {id:Date.now()-2**15, name: 'Дарья', waybill: '5846', typeorder:'доставка оптом', createdate: '05.06.2021', isInvisible: true,},
+        {id:Date.now()-2**16, name: 'Виталий', waybill: '3980', typeorder:'покупка в розницу', createdate: '05.06.2021', isInvisible: true,},
+        {id:Date.now()-2**17, name: 'Тони', waybill: '7690', typeorder:'доставка оптом', createdate: '06.06.2021', isInvisible: true,},
+        {id:Date.now()-2**18, name: 'Мари', waybill: '3764', typeorder:'покупка в розницу', createdate: '07.06.2021', isInvisible: true,},
       ],
     }
   },
   methods: {
     addRecord(record) {
       this.users.push(record);
-    }
-  }
+    },
+  },
 }
 </script>
 

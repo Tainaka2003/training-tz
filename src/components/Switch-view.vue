@@ -1,6 +1,6 @@
 <template>
   <div class="switch_view">
-    <router-link to="/card">
+    <router-link to="/card" class="router-wrap">
       <button class="switch_view-button">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M5.99999 9.1429H4.28568C4.20831 9.1429 4.14135 9.17104 4.08481 9.22762C4.02824 9.28422 4 9.35121 4 9.42861V11.1429C4 11.2202 4.02824 11.2873 4.08481 11.3438C4.14138 11.4002 4.20831 11.4286 4.28568 11.4286H5.99999C6.07736 11.4286 6.14432 11.4003 6.20086 11.3438C6.25743 11.2872 6.28567 11.2202 6.28567 11.1429V9.42861C6.28567 9.35121 6.2574 9.28422 6.20086 9.22762C6.14432 9.17114 6.07736 9.1429 5.99999 9.1429Z" fill="#045DA7"/>
@@ -14,7 +14,7 @@
         </svg>
       </button>
     </router-link>
-    <router-link to="/">
+    <router-link to="/" class="router-wrap">
       <button class="switch_view-button">
         <svg width="16" height="10" viewBox="0 0 16 10" fill="none" xmlns="http://www.w3.org/2000/svg">
           <line y1="1" x2="16" y2="1" stroke="#045DA7" stroke-width="2"/>

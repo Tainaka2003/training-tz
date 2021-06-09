@@ -8,7 +8,7 @@
 
 <script>
 export default {
-  name: "FilterComponent"
+  name: "FilterComponent",
 }
 </script>
 
