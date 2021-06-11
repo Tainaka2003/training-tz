@@ -3,7 +3,15 @@
     <div class="main">
       <div class="left">
         <AddButton></AddButton>
-        <FilterComponent></FilterComponent>
+        <!-- Filter -->
+        <div class="filter">
+          <p class="filter-caption">Filters</p>
+          <p class="filter-subcaption">Input name</p>
+          <div>
+            <input type="text" class="filter-input" v-model="inputStr" @keyup="sortArray">
+          </div>
+        </div>
+        <!-- Filter -->
       </div>
       <div class="right">
         <div class="right-head">
@@ -11,7 +19,7 @@
           <SwitchView></SwitchView>
         </div>
         <div class="card-wraper">
-          <Card v-bind:users="users"></Card>
+          <Card v-bind:users="users" :list="list"></Card>
         </div>
       </div>
     </div>
@@ -21,7 +29,6 @@
 <script>
 
 import AddButton from "@/components/AddButton";
-import FilterComponent from "@/components/FilterComponent";
 import Sorting from "@/components/Sorting";
 import SwitchView from "@/components/Switch-view";
 import Card from "@/components/Card";
@@ -30,22 +37,31 @@ export default {
   components: {
     SwitchView,
     Sorting,
-    FilterComponent,
     AddButton,
     Card
   },
+  created() {
+    this.list = this.users;
+  },
   data() {
     return {
+      inputStr: '',
+      list: [],
     }
   },
-  props: { users: Array, },
   methods: {
-
-  }
+    sortArray() {
+      this.list = this.users.filter(item => {
+        return item.name.includes(this.inputStr);
+      });
+    }
+  },
+  props: { users: Array}
 }
 </script>
 
 <style>
+@import "./../components/style/FilterComponent.scss";
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

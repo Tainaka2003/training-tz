@@ -5,10 +5,10 @@
         Тестовое задание
       </div>
     </div>
-    <router-view v-bind:users="users" @addRecord="addRecord"/>
+    <router-view v-bind:users="users" @addRecord="addRecord" @searchRecord="searchRecord"/>
     <pre>
     {{$data}}
-  </pre>
+    </pre>
   </div>
 </template>
 
@@ -21,6 +21,7 @@ export default {
   },
   data() {
     return {
+      searchId: '',
       users: [
         {id:Date.now()-2**10, name: 'Аня', waybill: '5846', typeorder:'доставка оптом', createdate: '02.06.2021', isInvisible: true,},
         {id:Date.now()-2**11, name: 'Борис', waybill: '3980', typeorder:'покупка в розницу', createdate: '02.06.2021', isInvisible: true,},
@@ -38,6 +39,9 @@ export default {
     addRecord(record) {
       this.users.push(record);
     },
+    searchRecord(search) {
+      this.users.filter(search);
+    }
   },
 }
 </script>

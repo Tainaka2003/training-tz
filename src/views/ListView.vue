@@ -3,7 +3,6 @@
     <div class="main">
       <div class="left">
         <AddButton></AddButton>
-        <FilterComponent></FilterComponent>
       </div>
       <div class="right">
         <div class="right-head">
@@ -21,7 +20,6 @@
 <script>
 
 import AddButton from "@/components/AddButton";
-import FilterComponent from "@/components/FilterComponent";
 import Sorting from "@/components/Sorting";
 import SwitchView from "@/components/Switch-view";
 import List from "@/components/List";
@@ -30,7 +28,6 @@ export default {
   components: {
     SwitchView,
     Sorting,
-    FilterComponent,
     AddButton,
     List,
   },

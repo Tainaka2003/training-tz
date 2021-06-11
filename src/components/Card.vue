@@ -1,6 +1,6 @@
 <template>
   <div class="right-main_card-wrap">
-    <div class="main_card" :users="users" v-for="(user, index) in users" v-bind:key="user.id">
+    <div class="main_card" v-for="(user, index) of list" :key="index">
     <div class="right-main_card-head">
       <span class="card-title">Card {{user.id+1}}</span>
       <div class="btn-wrap">
@@ -59,7 +59,7 @@ export default {
     }
   },
   props: {
-    users: Array
+    users: Array, list: Array,
   }
 }
 </script>
