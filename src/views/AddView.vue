@@ -12,9 +12,13 @@
       <p class="window-text">Номер накладной</p>
       <input type="text" class="window-input" v-model="waybill">
       <p class="window-text">Тип доставки</p>
-      <input type="text" class="window-input" v-model="typeorder">
+      <select class="window-input" v-model="typeorder">
+        <option value="доставка оптом">доставка оптом</option>
+        <option value="покупка в розницу">покупка в розницу</option>
+        <option value="курьером на дом">курьером на дом</option>
+      </select>
       <p class="window-text">Дата создания</p>
-      <input type="text" class="window-input" v-model="createdate">
+      <input type="date" class="window-input" v-model="createdate">
       <button class="window-record" @click="addRecord">
         <span class="window-record-text">добавить</span>
       </button>

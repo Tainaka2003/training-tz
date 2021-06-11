@@ -56,7 +56,7 @@ export default {
       });
     }
   },
-  props: { users: Array}
+  props: { users: Array }
 }
 </script>
 

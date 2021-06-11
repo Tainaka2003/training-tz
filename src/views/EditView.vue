@@ -6,16 +6,20 @@
       </div>
     </router-link>
     <div class="window">
-      <p class="window-title">Изменить запись</p>
-      <div class="editor-wrap" :users="users" v-for="(user) in users" v-bind:key="user.id">
+      <p class="window-title">Изменить запись номер {{i+1}}</p>
+      <div class="editor-wrap">
         <p class="window-text">Имя клиента</p>
-        <input type="text" class="window-input" v-model="user.name">
+        <input type="text" class="window-input" v-model="users[i].name">
         <p class="window-text">Номер накладной</p>
-        <input type="text" class="window-input" v-model="user.waybill">
+        <input type="text" class="window-input" v-model="users[i].waybill">
         <p class="window-text">Тип доставки</p>
-        <input type="text" class="window-input" v-model="user.typeorder">
+        <input type="text" class="window-input" v-model="users[i].typeorder">
         <p class="window-text">Дата создания</p>
-        <input type="text" class="window-input-last" v-model="user.createdate">
+        <input type="text" class="window-input-last" v-model="users[i].createdate">
+      </div>
+      <div class="pag-wraper">
+        <button class="pag" v-on:click="i--">Prev</button>
+        <button class="pag" v-on:click="i++">Next</button>
       </div>
     </div>
   </div>
@@ -30,6 +34,9 @@ export default {
       waybill: '',
       typeorder: '',
       createdate: '',
+      inputStr: '',
+      list: [],
+      i: 0,
     }
   },
   methods: {
@@ -48,7 +55,7 @@ export default {
       this.waybill='';
       this.typeorder='';
       this.createdate='';
-    }
+    },
   },
   props: {
     users: Array,
@@ -71,15 +78,16 @@ export default {
 }
 
 .editor-wrap {
-  display: grid;
-  grid-template-areas:    "item item item item item item item item "
+
 }
 
 .window {
   background: #FFFFFF;
   position: absolute;
-  top: 20%;
-  left: 20%;
+  top: 27.5%;
+  left: 27.5%;
+  width: 45%;
+  height: 45%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -87,7 +95,7 @@ export default {
 
 .window-title {
   margin: 10px auto;
-  width: 20%;
+  width: 30%;
   text-align: center;
 }
 
@@ -106,29 +114,15 @@ export default {
   margin-right: 15px;
 }
 
-.window-record {
+.pag-wraper {
   display: flex;
+  justify-content: space-around;
   align-items: center;
-  justify-content: center;
-  background: #4943CD;
-  box-shadow: 0px 4px 4px #EBEBEB;
-  border-radius: 2px;
-  border: 0;
-  outline: 0;
-  width: 20%;
-  height: 50px;
-  margin: 10px auto;
+  width: 100%;
 }
 
-.window-record-text {
-  text-transform: uppercase;
-  margin-left: 16px;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 14px;
-  line-height: 16px;
+.pag {
 
-  color: #FFFFFF;
 }
 
 </style>

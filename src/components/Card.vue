@@ -2,9 +2,9 @@
   <div class="right-main_card-wrap">
     <div class="main_card" v-for="(user, index) of list" :key="index">
     <div class="right-main_card-head">
-      <span class="card-title">Card {{user.id+1}}</span>
+      <span class="card-title">Card {{index+1}}</span>
       <div class="btn-wrap">
-        <router-link to="/edit">
+        <router-link to="/edit" v-bind:index="index">
           <button class="dots" v-bind:class="{ invisible: user.isInvisible }">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <g clip-path="url(#clip0)">

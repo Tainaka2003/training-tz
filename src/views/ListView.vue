@@ -3,6 +3,15 @@
     <div class="main">
       <div class="left">
         <AddButton></AddButton>
+        <!-- Filter -->
+        <div class="filter">
+          <p class="filter-caption">Filters</p>
+          <p class="filter-subcaption">Input name</p>
+          <div>
+            <input type="text" class="filter-input" v-model="inputStr" @keyup="sortArray">
+          </div>
+        </div>
+        <!-- Filter -->
       </div>
       <div class="right">
         <div class="right-head">
@@ -10,7 +19,7 @@
           <SwitchView></SwitchView>
         </div>
         <div class="list-wraper">
-          <List v-bind:users="users"></List>
+          <List v-bind:users="users" :list="list"></List>
         </div>
       </div>
     </div>
@@ -31,19 +40,28 @@ export default {
     AddButton,
     List,
   },
+  created() {
+    this.list = this.users;
+  },
   data() {
     return {
-
+      inputStr: '',
+      list: [],
     }
   },
-  props: { users: Array, },
   methods: {
-
-  }
+    sortArray() {
+      this.list = this.users.filter(item => {
+        return item.name.includes(this.inputStr);
+      });
+    }
+  },
+  props: { users: Array }
 }
 </script>
 
 <style>
+@import "./../components/style/FilterComponent.scss";
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
