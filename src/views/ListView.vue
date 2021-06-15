@@ -19,7 +19,7 @@
           <SwitchView></SwitchView>
         </div>
         <div class="list-wraper">
-          <List v-bind:users="users" :list="list"></List>
+          <List :list="list"></List>
         </div>
       </div>
     </div>
@@ -56,7 +56,6 @@ export default {
       });
     }
   },
-  props: { users: Array }
 }
 </script>
 

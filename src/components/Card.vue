@@ -1,6 +1,6 @@
 <template>
   <div class="right-main_card-wrap">
-    <div class="main_card" v-for="(user, index) of list" :key="index">
+    <div class="main_card" v-for="(user, index) of users" :key="index">
     <div class="right-main_card-head">
       <span class="card-title">Card {{index+1}}</span>
       <div class="btn-wrap">
@@ -52,14 +52,20 @@
 </template>
 
 <script>
+import {mapState} from "vuex";
+
 export default {
   name: "Card",
   data() {
     return {
     }
   },
-  props: {
-    users: Array, list: Array,
+  props: { list: Array,
+  },
+  computed: {
+    ...mapState ([
+      'users',
+    ]),
   }
 }
 </script>

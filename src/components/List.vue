@@ -49,7 +49,7 @@
         </div>
         <div class="head-caption"></div>
       </div>
-      <div class="right-main_list-text" v-for="(user, index) in list" v-bind:key="index">
+      <div class="right-main_list-text" v-for="(user, index) in users" v-bind:key="index">
         <div class="text-caption">{{user.id}}</div>
         <div class="text-caption">{{user.name}}</div>
         <div class="text-caption">{{user.waybill}}</div>
@@ -91,14 +91,14 @@
 </template>
 
 <script>
+import {mapState} from 'vuex';
 export default {
   name: "List",
   data() {
     return {
     }
   },
-  props: {
-    users: Array, list: Array,
+  props: { list: Array,
   },
   methods: {
     sortedByIdAscending: function () {
@@ -176,6 +176,11 @@ export default {
       });
     },
   },
+  computed: {
+    ...mapState ([
+      'users',
+    ]),
+  }
 }
 
 </script>

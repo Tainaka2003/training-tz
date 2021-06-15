@@ -5,12 +5,13 @@
         Тестовое задание
       </div>
     </div>
-    <router-view v-bind:users="users" @addRecord="addRecord" @searchRecord="searchRecord"/>
+    <router-view @addRecord="addRecord" @searchRecord="searchRecord"/>
   </div>
 </template>
 
 <script>
 import  { mapGetters } from "vuex"
+import {ADD_RECORD} from "@/store/mutations";
 
 export default {
   name: 'App',
@@ -24,17 +25,12 @@ export default {
   },
   methods: {
     addRecord(record) {
-      this.users.push(record);
+      this.$store.commit(ADD_RECORD, record);
     },
     searchRecord(search) {
       this.users.filter(search);
     }
   },
-        //  computed: {
-        //    users() {
-        //      return this.$store.getters.users;
-        //    }
-        //  }
   computed: mapGetters(['users']),
 }
 </script>
