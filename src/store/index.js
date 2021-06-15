@@ -1,13 +1,15 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import {ADD_RECORD} from "@/store/mutations";
+import { ADD_RECORD } from "./mutations";
 
 Vue.use(Vuex);
 
-export default {
+export default new Vuex.Store( {
     actions: {},
     mutations: {
-        [ADD_RECORD]: (state, record) => state.users.push(record)
+        [ADD_RECORD]: (state, record) => {
+            state.users.push(record)
+        }
     },
     state: {
         users:
@@ -95,8 +97,5 @@ export default {
             ],
     },
     getters: {
-        users(state) {
-            return state.users;
-        }
     },
-}
+});

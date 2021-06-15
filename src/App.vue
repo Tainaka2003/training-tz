@@ -10,7 +10,6 @@
 </template>
 
 <script>
-import  { mapGetters } from "vuex"
 import {ADD_RECORD} from "@/store/mutations";
 
 export default {
@@ -31,7 +30,6 @@ export default {
       this.users.filter(search);
     }
   },
-  computed: mapGetters(['users']),
 }
 </script>
 
