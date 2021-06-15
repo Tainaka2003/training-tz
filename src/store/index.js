@@ -1,14 +1,20 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import { ADD_RECORD } from "./mutations";
+import {ADD_RECORD} from "./mutations";
+import {SEARCH_RECORD} from "@/store/actions";
 
 Vue.use(Vuex);
 
 export default new Vuex.Store( {
-    actions: {},
+    actions: {
+
+    },
     mutations: {
         [ADD_RECORD]: (state, record) => {
             state.users.push(record)
+        },
+        [SEARCH_RECORD]: (state, search) => {
+            state.searched = state.users.filter(() => state.users.include(search))
         }
     },
     state: {
@@ -95,6 +101,7 @@ export default new Vuex.Store( {
                     isInvisible: true,
                 },
             ],
+        searched: [],
     },
     getters: {
     },

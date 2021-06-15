@@ -51,9 +51,9 @@ export default {
   },
   methods: {
     sortArray() {
-      this.list = this.users.filter(item => {
-        return item.name.includes(this.inputStr);
-      });
+      // this.list = this.users.filter(item => {
+      //   return item.name.includes(this.inputStr);
+      // });
     }
   },
 }

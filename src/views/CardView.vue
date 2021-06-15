@@ -50,10 +50,12 @@ export default {
     }
   },
   methods: {
-    sortArray() {
-      this.list = this.users.filter(item => {
-        return item.name.includes(this.inputStr);
-      });
+    sortArray: function () {
+      if (!this.name) return;
+      const search = {
+        name: this.inputStr,
+      };
+      this.$emit('searchRecord', search);
     }
   },
 }

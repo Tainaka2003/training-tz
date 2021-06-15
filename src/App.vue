@@ -11,6 +11,7 @@
 
 <script>
 import {ADD_RECORD} from "@/store/mutations";
+import {SEARCH_RECORD} from "@/store/actions";
 
 export default {
   name: 'App',
@@ -27,7 +28,7 @@ export default {
       this.$store.commit(ADD_RECORD, record);
     },
     searchRecord(search) {
-      this.users.filter(search);
+      this.$store.commit(SEARCH_RECORD, search);
     }
   },
 }
