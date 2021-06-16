@@ -6,19 +6,19 @@
       </div>
     </router-link>
     <div class="window">
-      <p class="window-title">Изменить запись</p>
+      <p class="window-title">Изменить запись {{$route.params.userId}}</p>
       <p class="window-text">Имя клиента</p>
-      <input type="text" class="window-input" v-model="name">
+      <input type="text" class="window-input" v-model="users[$route.params.userId].name">
       <p class="window-text">Номер накладной</p>
-      <input type="text" class="window-input" v-model="waybill">
+      <input type="text" class="window-input" v-model="users[$route.params.userId].waybill">
       <p class="window-text">Тип доставки</p>
-      <select class="window-input" v-model="typeorder">
+      <select class="window-input" v-model="users[$route.params.userId].typeorder">
         <option value="доставка оптом">доставка оптом</option>
         <option value="покупка в розницу">покупка в розницу</option>
         <option value="курьером на дом">курьером на дом</option>
       </select>
       <p class="window-text">Дата создания</p>
-      <input type="date" class="window-input" v-model="createdate">
+      <input type="date" class="window-input" v-model="users[$route.params.userId].createdate">
       <button class="window-record" @click="addRecord">
         <span class="window-record-text">изменить</span>
       </button>
@@ -27,6 +27,7 @@
 </template>
 
 <script>
+import {mapState} from "vuex";
 export default {
   name: "ModalView",
   data() {
@@ -55,6 +56,11 @@ export default {
       this.createdate='';
     }
   },
+  computed: {
+    ...mapState ([
+      'users',
+    ]),
+  }
 }
 </script>
 
