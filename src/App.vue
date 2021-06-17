@@ -5,13 +5,12 @@
         Тестовое задание
       </div>
     </div>
-    <router-view @addRecord="addRecord" @searchRecord="searchRecord"/>
+    <router-view @addRecord="addRecord"/>
   </div>
 </template>
 
 <script>
 import {ADD_RECORD} from "@/store/mutations";
-import {SEARCH_RECORD} from "@/store/actions";
 
 export default {
   name: 'App',
@@ -27,9 +26,6 @@ export default {
     addRecord(record) {
       this.$store.commit(ADD_RECORD, record);
     },
-    searchRecord(search) {
-      this.$store.commit(SEARCH_RECORD, search);
-    }
   },
 }
 </script>

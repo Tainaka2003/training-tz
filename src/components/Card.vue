@@ -1,6 +1,6 @@
 <template>
   <div class="right-main_card-wrap">
-    <div class="main_card" v-for="(user, index) of users" :key="index">
+    <div class="main_card" v-for="(user, index) of searched" :key="index">
     <div class="right-main_card-head">
       <span class="card-title">Card {{index}}</span>
       <div class="btn-wrap">
@@ -60,7 +60,7 @@ export default {
     return {
     }
   },
-  props: { list: Array,
+  props: { searched: Array
   },
   computed: {
     ...mapState ([

@@ -19,7 +19,7 @@
           <SwitchView></SwitchView>
         </div>
         <div class="list-wraper">
-          <List :list="list"></List>
+          <List :searched="searched"></List>
         </div>
       </div>
     </div>
@@ -56,6 +56,13 @@ export default {
       // });
     }
   },
+  computed: {
+    searched () {
+      return this.$store.getters.stateUsers.filter(item => {
+        return item.name.includes(this.inputStr);
+      });
+    }
+  }
 }
 </script>
 

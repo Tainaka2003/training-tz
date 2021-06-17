@@ -1,1 +1,0 @@
-export const SEARCH_RECORD = 'SEARCH_RECORD';

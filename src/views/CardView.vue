@@ -12,6 +12,8 @@
           </div>
         </div>
         <!-- Filter -->
+        <div>
+        </div>
       </div>
       <div class="right">
         <div class="right-head">
@@ -19,7 +21,7 @@
           <SwitchView></SwitchView>
         </div>
         <div class="card-wraper">
-          <Card :list="list"></Card>
+          <Card :searched="searched"></Card>
         </div>
       </div>
     </div>
@@ -46,7 +48,6 @@ export default {
   data() {
     return {
       inputStr: '',
-      list: [],
     }
   },
   methods: {
@@ -58,6 +59,13 @@ export default {
       this.$emit('searchRecord', search);
     }
   },
+  computed: {
+    searched () {
+      return this.$store.getters.stateUsers.filter(item => {
+        return item.name.includes(this.inputStr);
+      });
+    }
+  }
 }
 </script>
 

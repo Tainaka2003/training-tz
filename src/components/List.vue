@@ -49,7 +49,7 @@
         </div>
         <div class="head-caption"></div>
       </div>
-      <div class="right-main_list-text" v-for="(user, index) in users" v-bind:key="index">
+      <div class="right-main_list-text" v-for="(user, index) in searched" v-bind:key="index">
         <div class="text-caption">{{user.id}}</div>
         <div class="text-caption">{{user.name}}</div>
         <div class="text-caption">{{user.waybill}}</div>
@@ -98,7 +98,7 @@ export default {
     return {
     }
   },
-  props: { list: Array,
+  props: { searched: Array
   },
   methods: {
     sortedByIdAscending: function () {
