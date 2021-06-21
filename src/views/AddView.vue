@@ -75,10 +75,10 @@ export default {
 .window {
   background: #FFFFFF;
   position: absolute;
-  top: 27.5%;
-  left: 27.5%;
-  width: 45%;
-  height: 45%;
+  top: 200px;
+  left: 560px;
+  width: 800px;
+  height: 480px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;

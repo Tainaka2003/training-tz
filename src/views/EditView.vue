@@ -5,23 +5,25 @@
 
       </div>
     </router-link>
-    <div class="window">
-      <p class="window-title">Изменить запись {{$route.params.userId}}</p>
-      <p class="window-text">Имя клиента</p>
-      <input type="text" class="window-input" v-model="users[$route.params.userId].name">
-      <p class="window-text">Номер накладной</p>
-      <input type="text" class="window-input" v-model="users[$route.params.userId].waybill">
-      <p class="window-text">Тип доставки</p>
-      <select class="window-input" v-model="users[$route.params.userId].typeorder">
-        <option value="доставка оптом">доставка оптом</option>
-        <option value="покупка в розницу">покупка в розницу</option>
-        <option value="курьером на дом">курьером на дом</option>
-      </select>
-      <p class="window-text">Дата создания</p>
-      <input type="date" class="window-input" v-model="users[$route.params.userId].createdate">
-      <button class="window-record" @click="addRecord">
-        <span class="window-record-text">изменить</span>
-      </button>
+    <div>
+      <div class="window" v-for="(user, index) in editable" v-bind:key="index">
+        <p class="window-title">Изменить запись {{user.id}}</p>
+        <p class="window-text">Имя клиента</p>
+        <input type="text" class="window-input" v-model="user.name">
+        <p class="window-text">Номер накладной</p>
+        <input type="text" class="window-input" v-model="user.waybill">
+        <p class="window-text">Тип доставки</p>
+        <select class="window-input" v-model="user.typeorder">
+          <option value="доставка оптом">доставка оптом</option>
+          <option value="покупка в розницу">покупка в розницу</option>
+          <option value="курьером на дом">курьером на дом</option>
+        </select>
+        <p class="window-text">Дата создания</p>
+        <input type="date" class="window-input" v-model="user.createdate">
+        <button class="window-record" @click="addRecord">
+          <span class="window-record-text">изменить</span>
+        </button>
+      </div>
     </div>
   </div>
 </template>
@@ -42,7 +44,7 @@ export default {
     addRecord: function () {
       if (!this.waybill || !this.createdate || !this.typeorder) return;
       const record = {
-        id:Date.now(),
+        id: Date.now(),
         name: this.name,
         waybill: this.waybill,
         typeorder: this.typeorder,
@@ -50,17 +52,23 @@ export default {
         isInvisible: true,
       };
       this.$emit('addRecord', record);
-      this.name='';
-      this.waybill='';
-      this.typeorder='';
-      this.createdate='';
+      this.name = '';
+      this.waybill = '';
+      this.typeorder = '';
+      this.createdate = '';
     }
   },
   computed: {
-    ...mapState ([
+    ...mapState([
       'users',
     ]),
-  }
+    editable() {
+      return this.$store.getters.stateUsers.filter(item => {
+        return item.waybill.includes(this.userId);
+      });
+    }
+  },
+  props: ['userId']
 }
 </script>
 
@@ -81,10 +89,10 @@ export default {
 .window {
   background: #FFFFFF;
   position: absolute;
-  top: 27.5%;
-  left: 27.5%;
-  width: 45%;
-  height: 45%;
+  top: 200px;
+  left: 560px;
+  width: 800px;
+  height: 480px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
