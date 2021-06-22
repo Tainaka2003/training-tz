@@ -57,7 +57,7 @@
         <div class="text-caption">{{user.createdate}}</div>
         <div class="text-caption">
           <div class="btn-wrap">
-            <router-link :to="{ name: 'EditView', params: { userId: user.waybill }}">
+            <router-link :to="{ name: 'EditView', params: { userId: user.num }}">
               <button class="edit-delete-settings" v-bind:class="{ invisible: user.isInvisible }">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <g clip-path="url(#clip0)">

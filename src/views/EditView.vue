@@ -6,23 +6,25 @@
       </div>
     </router-link>
     <div>
-      <div class="window" v-for="(user, index) in editable" v-bind:key="index">
-        <p class="window-title">Изменить запись {{user.id}}</p>
+      <div class="window">
+        <p class="window-title">Изменить запись {{editable.id}}</p>
         <p class="window-text">Имя клиента</p>
-        <input type="text" class="window-input" v-model="user.name">
+        <input type="text" class="window-input" v-model="editable.name">
         <p class="window-text">Номер накладной</p>
-        <input type="text" class="window-input" v-model="user.waybill">
+        <input type="text" class="window-input" v-model="editable.waybill">
         <p class="window-text">Тип доставки</p>
-        <select class="window-input" v-model="user.typeorder">
+        <select class="window-input" v-model="editable.typeorder">
           <option value="доставка оптом">доставка оптом</option>
           <option value="покупка в розницу">покупка в розницу</option>
           <option value="курьером на дом">курьером на дом</option>
         </select>
         <p class="window-text">Дата создания</p>
-        <input type="date" class="window-input" v-model="user.createdate">
-        <button class="window-record" @click="addRecord">
-          <span class="window-record-text">изменить</span>
-        </button>
+        <input type="date" class="window-input" v-model="editable.createdate">
+        <router-link to="/" class="button-wrap">
+          <button class="window-record" @click="addRecord">
+            <span class="window-record-text">изменить</span>
+          </button>
+        </router-link>
       </div>
     </div>
   </div>
@@ -62,10 +64,8 @@ export default {
     ...mapState([
       'users',
     ]),
-    editable() {
-      return this.$store.getters.stateUsers.filter(item => {
-        return item.waybill.includes(this.userId);
-      });
+    editable () {
+      return this.$store.getters.stateUsers.find(item => item.num === this.userId);
     }
   },
   props: ['userId']
@@ -112,18 +112,24 @@ export default {
   margin-bottom: 15px;
 }
 
+.button-wrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
 .window-record {
   display: flex;
   align-items: center;
   justify-content: center;
   background: #4943CD;
-  box-shadow: 0px 4px 4px #EBEBEB;
+  box-shadow: 0 4px 4px #EBEBEB;
   border-radius: 2px;
   border: 0;
   outline: 0;
   width: 20%;
   height: 50px;
-  margin: 10px auto;
+
 }
 
 .window-record-text {
