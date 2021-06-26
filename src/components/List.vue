@@ -141,7 +141,7 @@ export default {
     },
     sortedByTypeOrderAscending: function () {
       return this.users.sort(function (a,b) {
-        if (a.typeorder < b.typeorder )
+        if (a.typeorder < b.typeorder)
           return -1;
         if (a.typeorder > b.typeorder)
           return 1;
