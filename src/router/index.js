@@ -7,7 +7,7 @@ Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/',
+    path: '/list',
     name: 'ListView',
     component: ListView
   },
@@ -20,7 +20,7 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/CardView.vue')
   },
   {
-    path: '/kcktable',
+    path: '/',
     name: 'KckTableView',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
