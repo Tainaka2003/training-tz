@@ -101,6 +101,9 @@ export default new Vuex.Store( {
     getters: {
         stateUsers: state => {
             return state.users;
+        },
+        items: state => {
+            return state.users;
         }
     },
 });

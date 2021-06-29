@@ -3,6 +3,7 @@
     <a-table
       :headers="headers"
       :items="items"
+      :searched="searched"
       :sortParams="sortParams"
       :sortParamsDefault="sortParamsDefault"
       :useExtRowComponent="getExtRowComponent"
@@ -16,6 +17,7 @@ import ATable from './components/ATable';
 import TableCustomHeader from './../../stubs/components/TableCustomHeader';
 import TableExtRowComponent from './../../stubs/components/TableExtRowComponent';
 import TableCustomCellActions from './../../stubs/components/TableCustomCellActions';
+import {mapGetters} from "vuex";
 
 export default {
   name: 'TheTable',
@@ -94,96 +96,102 @@ export default {
         sidx: '',
         sord: '',
       },
-      items: [
-        {
-          num: 0,
-          id: Date.now(),
-          name: 'Аня',
-          waybill: '5846',
-          typeorder: 'доставка оптом',
-          createdate: '2021-06-02',
-          isInvisible: true,
-        },
-        {
-          num: 1,
-          id: Date.now() - 1,
-          name: 'Борис',
-          waybill: '3980',
-          typeorder: 'покупка в розницу',
-          createdate: '2021-06-02',
-          isInvisible: true,
-        },
-        {
-          num: 2,
-          id: Date.now() - 2,
-          name: 'Клара',
-          waybill: '7690',
-          typeorder: 'доставка оптом',
-          createdate: '2021-06-03',
-          isInvisible: true,
-        },
-        {
-          num: 3,
-          id: Date.now() - 3,
-          name: 'Дональд',
-          waybill: '3764',
-          typeorder: 'покупка в розницу',
-          createdate: '2021-06-03',
-          isInvisible: true,
-        },
-        {
-          num: 4,
-          id: Date.now() - 4,
-          name: 'Эдвард',
-          waybill: '2754',
-          typeorder: 'доставка оптом',
-          createdate: '2021-06-04',
-          isInvisible: true,
-        },
-        {
-          num: 5,
-          id: Date.now() - 5,
-          name: 'Дарья',
-          waybill: '8233',
-          typeorder: 'доставка оптом',
-          createdate: '2021-06-05',
-          isInvisible: true,
-        },
-        {
-          num: 6,
-          id: Date.now() - 6,
-          name: 'Виталий',
-          waybill: '0254',
-          typeorder: 'покупка в розницу',
-          createdate: '2021-06-05',
-          isInvisible: true,
-        },
-        {
-          num: 7,
-          id: Date.now() - 7,
-          name: 'Тони',
-          waybill: '5399',
-          typeorder: 'доставка оптом',
-          createdate: '2021-06-06',
-          isInvisible: true,
-        },
-        {
-          num: 8,
-          id: Date.now() - 8,
-          name: 'Мари',
-          waybill: '1233',
-          typeorder: 'покупка в розницу',
-          createdate: '2021-06-07',
-          isInvisible: true,
-        },
-      ],
+      // items: [
+      //   {
+      //     num: 0,
+      //     id: Date.now(),
+      //     name: 'Аня',
+      //     waybill: '5846',
+      //     typeorder: 'доставка оптом',
+      //     createdate: '2021-06-02',
+      //     isInvisible: true,
+      //   },
+      //   {
+      //     num: 1,
+      //     id: Date.now() - 1,
+      //     name: 'Борис',
+      //     waybill: '3980',
+      //     typeorder: 'покупка в розницу',
+      //     createdate: '2021-06-02',
+      //     isInvisible: true,
+      //   },
+      //   {
+      //     num: 2,
+      //     id: Date.now() - 2,
+      //     name: 'Клара',
+      //     waybill: '7690',
+      //     typeorder: 'доставка оптом',
+      //     createdate: '2021-06-03',
+      //     isInvisible: true,
+      //   },
+      //   {
+      //     num: 3,
+      //     id: Date.now() - 3,
+      //     name: 'Дональд',
+      //     waybill: '3764',
+      //     typeorder: 'покупка в розницу',
+      //     createdate: '2021-06-03',
+      //     isInvisible: true,
+      //   },
+      //   {
+      //     num: 4,
+      //     id: Date.now() - 4,
+      //     name: 'Эдвард',
+      //     waybill: '2754',
+      //     typeorder: 'доставка оптом',
+      //     createdate: '2021-06-04',
+      //     isInvisible: true,
+      //   },
+      //   {
+      //     num: 5,
+      //     id: Date.now() - 5,
+      //     name: 'Дарья',
+      //     waybill: '8233',
+      //     typeorder: 'доставка оптом',
+      //     createdate: '2021-06-05',
+      //     isInvisible: true,
+      //   },
+      //   {
+      //     num: 6,
+      //     id: Date.now() - 6,
+      //     name: 'Виталий',
+      //     waybill: '0254',
+      //     typeorder: 'покупка в розницу',
+      //     createdate: '2021-06-05',
+      //     isInvisible: true,
+      //   },
+      //   {
+      //     num: 7,
+      //     id: Date.now() - 7,
+      //     name: 'Тони',
+      //     waybill: '5399',
+      //     typeorder: 'доставка оптом',
+      //     createdate: '2021-06-06',
+      //     isInvisible: true,
+      //   },
+      //   {
+      //     num: 8,
+      //     id: Date.now() - 8,
+      //     name: 'Мари',
+      //     waybill: '1233',
+      //     typeorder: 'покупка в розницу',
+      //     createdate: '2021-06-07',
+      //     isInvisible: true,
+      //   },
+      // ],
     };
+  },
+
+  props: { searched: Array
   },
 
   computed: {
     getExtRowComponent() {
       return TableExtRowComponent;
     },
+    ...mapGetters ([
+      'items',
+    ]),
   },
 
   methods: {
