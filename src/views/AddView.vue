@@ -19,9 +19,11 @@
       </select>
       <p class="window-text">Дата создания</p>
       <input type="date" class="window-input" v-model="createdate">
-      <button class="window-record" @click="addRecord">
-        <span class="window-record-text">добавить</span>
-      </button>
+      <router-link to="/">
+        <button class="window-record" @click="addRecord">
+          <span class="window-record-text">добавить</span>
+        </button>
+      </router-link>
     </div>
   </div>
 </template>
@@ -99,6 +101,7 @@ export default {
 }
 
 .window-record {
+  position: absolute;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -108,6 +111,7 @@ export default {
   border: 0;
   outline: 0;
   width: 20%;
+  left: 330px;
   height: 50px;
   margin: 10px auto;
 }

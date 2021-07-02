@@ -1,5 +1,4 @@
 <template>
-  <td>
     <div class="right-main_card-head">
       <div class="btn-wrap">
         <router-link :to="{ name: 'EditView', params: { userId: item.num }}">
@@ -30,7 +29,6 @@
         </button>
       </div>
     </div>
-  </td>
 </template>
 
 <script>

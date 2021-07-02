@@ -104,10 +104,6 @@ $mainBbColor: #fefefe;
       }
     }
 
-    &:hover:not(:first-child) {
-      border-collapse: separate;
-    }
-
     &:last-child {
 
       td {
